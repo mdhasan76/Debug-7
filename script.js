@@ -6,7 +6,7 @@ const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
 
 
-const err = [];
+let err = [];
 // variables
 let userText = "";
 let errorCount = 0;
@@ -49,7 +49,6 @@ const typeController = (e) => {
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
     err.push(newLetter);
-    console.log(err.length)
   }
 
   // check if given question text is equal to user typed text
@@ -95,6 +94,7 @@ const gameOver = () => {
   // restart everything
   startTime = null;
   errorCount = 0;
+  err = []
   userText = "";
   display.classList.add("inactive");
 };
@@ -123,6 +123,7 @@ const start = () => {
 
       clearInterval(startCountdown);
       startTime = new Date().getTime();
+      countdownOverlay.textContent = '';
     }
     count--;
   }, 1000);
