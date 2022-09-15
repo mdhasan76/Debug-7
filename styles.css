@@ -23,6 +23,7 @@ body {
   justify-content: center;
   color: white;
   font-size: 25px;
+  padding: 0 15px;
   border-radius: 15px;
   background: rgb(255, 255, 255);
   background: linear-gradient(92.49deg,
@@ -196,7 +197,24 @@ button {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  #display {
+    padding: 15px 20px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
+
+  #question {
+    height: auto;
+    padding: 10px 15px;
+  }
+
+  #display {
+    min-height: 70px;
+    height: auto;
+  }
+
   #histories {
     grid-template-columns: 1fr;
   }
