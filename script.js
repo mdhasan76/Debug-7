@@ -6,8 +6,10 @@ const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
 
 
-let err = [];
 // variables
+let correctLatter = [];
+let totalTyped = [];
+let err = [];
 let userText = "";
 let errorCount = 0;
 let startTime;
@@ -46,11 +48,20 @@ const typeController = (e) => {
 
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
+
+
+    //count Total correct char typed
+    correctLatter.push(newLetter);
+    //count total type
+    totalTyped.push(newLetter);
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
-    err.push(newLetter);
-  }
 
+    err.push(newLetter);
+    //count total type
+    totalTyped.push(newLetter);
+  }
+  // console.log(totalTyped)
   // check if given question text is equal to user typed text
   if (questionText === userText) {
     gameOver();
@@ -71,7 +82,16 @@ const gameOver = () => {
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
+
+  //count WPM & accuracy
   errorCount = err.length;
+  const timeInMinutes = timeTaken / 60;
+  const allTypeChar = totalTyped.length;
+  const totalCorrectTyped = correctLatter.length;
+  const grossWpmChar = (allTypeChar / 5) - errorCount;
+  const wpm = Math.round(grossWpmChar / timeInMinutes);
+  const accuracy = Math.round((totalCorrectTyped / allTypeChar) * 100);
+
 
   // show result modal
   resultModal.innerHTML = "";
@@ -86,15 +106,19 @@ const gameOver = () => {
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>Your WPM <span class="bold green">${wpm}</span></p>
+    <p>Your accuracy <span class="bold green">${accuracy}</span></p>
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, timeTaken, errorCount);
+  addHistory(questionText, timeTaken, errorCount, wpm, accuracy);
 
   // restart everything
+  correctLatter = [];
+  totalTyped = [];
   startTime = null;
   errorCount = 0;
-  err = []
+  err = [];
   userText = "";
   display.classList.add("inactive");
 };
