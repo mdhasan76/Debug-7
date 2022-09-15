@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-2nd">
+            <h1 class="faq-h1">FAQ</h1>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Question 1  -->
+        <article>
+            <h1>1. Difference Between Global scope and Block Scope.</h1>
+            <div class="faq-answer">
+                <p>
+                    <strong>Global scope:</strong> When we decleare a variable outside of {} & function . we can access
+                    those variable from anyhere on this file. Even in scope ,function & {}.Global scope is controled by
+                    Window object.
+                </p>
+                <p>
+                    <strong>Block Scope:</strong> We describe Block that A block is a peace of code inside {} brackets
+                    and a
+                    function
+                    scope or groups code statment togather. wright a variable using let and const inside if , else, for
+                    statment is call this variable is bloc scope.
+                </p>
+            </div>
+        </article>
+
+        <!-- Question 2 -->
+        <article>
+            <h1>2. Difference between Local storage and Session storage.</h1>
+            <div class="faq-answer">
+                <p>
+                    Session storage is similar to local storage. The diffence is while user/client leave the borwser.
+                    local storage data doesn't expire. it saves this data on this praticular browser. But the session
+                    storage doesnt it. When user/client leave or relode this tab\page the session storage data is
+                    cleared .
+                </p>
+            </div>
+        </article>
+
+        <!-- question 3 -->
+        <article>
+            <h1>3. How does work Javascript Event loop?</h1>
+            <div class="faq-answer">
+                <p>
+                    The Event Loop has one simple job — to monitor the Call Stack and the Callback Queue. If the Call
+                    Stack is empty, the Event Loop will take the first event from the queue and will push it to the Call
+                    Stack, which effectively runs it. Such an iteration is called a tick in the Event Loop.
+                </p>
+            </div>
+        </article>
+        <!-- question 4 -->
+        <article>
+            <h1>4. How way we get undefind? </h1>
+            <div class="faq-answer">
+                <p>
+                    many way we get<strong> undefind</strong> in javascript.
+                <ol>
+                    <li>Those variable That is not initialise will give <strong>Undefind</strong></li>
+                    <li>Function thai will no return</li>
+                    <li>Paremeter that is not passed on function</li>
+                    <li>If return has nothing on right side will return undefind</li>
+                    <li>Try to access object property that has not in object will give undefind</li>
+                    <li>try to Access array element out of array rang will give undefind</li>
+                    <li>try to access those array element that was delete will give undefind</li>
+                </ol>
+                </p>
+            </div>
+        </article>
+    </main>
+
+</body>
+
+</html>
